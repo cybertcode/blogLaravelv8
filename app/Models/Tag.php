@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Tag extends Model
 {
     use HasFactory;
+    // relación de muchos a muchos
+    public function posts()
+    {
+        return $this->belongsToMany(Post::class);
+    }
 }
