@@ -13,9 +13,18 @@ class Post extends Model
     {
         return $this->belongsTo(User::class);
     }
-
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+    // relación de muchos a muchos
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
+    }
     // Relación de uno a uno polimórfica
-    public function image(){
-        return $this->morphOne(Image::class,'imageable');
+    public function image()
+    {
+        return $this->morphOne(Image::class, 'imageable');
     }
 }
